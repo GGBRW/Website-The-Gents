@@ -7,24 +7,161 @@
 
     <title>The Gents</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <header class="header">
-      <span class="logo" onclick="scrollTo(0,0)"><span>
+      <span class="logo" onclick="scrollTo(0,0)">THE <span style="color: #a00">GENTS</span></span>
       <nav class="nav">
-
+        <a>About</a>
+        <a>Concerts</a>
+        <a>Conductor</a>
+        <a>Audio</a>
       </nav>
     </header>
 
     <div class="jumbotron">
-      <h1>The Gents</h1>
+      <img src="img/gents.png" style="transform: translateY(50px)">
+      <div class="logo">
+        <h1 id="the" style="transform: translateX(-80px)">THE</h1>
+        <h2 style="transform: translateX(-50px)">Vocal ensemble</h2>
+        <br>
+        <h1 id="gents" style="position: relative; top: -50px; transform: translateX(-30px)">GENTS</h1>
+
+        <script>
+        const jumbotron = document.querySelector(".jumbotron");
+        const the = document.querySelector(".logo #the");
+        const gents = document.querySelector(".logo #gents");
+        const sub = document.querySelector(".logo h2");
+        const img = document.querySelector(".jumbotron img");
+
+        document.body.onload = function(e) {
+          gents.style.color = "#a00";
+
+          the.style.transform = "translateX(0px)";
+          gents.style.transform = "translateX(0px)";
+          sub.style.transform = "translateX(0px)";
+          img.style.transform = "translateY(0px)";
+
+          jumbotron.style.opacity = 1;
+        };
+        </script>
+      </div>
+      <div class="scrolldown">
+        <i class="material-icons" style="font-size: 80px;">keyboard_arrow_down</i>
+        <br>
+        <span style="position: relative; top: -10px;">Scroll down</span>
+      </div>
+
+      <script>
+        (function animate() {
+            document.querySelector(".jumbotron img").style.bottom = document.body.scrollTop / 5 + "px";
+            document.querySelector(".jumbotron .logo").style.marginTop = 200 - document.body.scrollTop / 10 + "px";
+            document.querySelector(".header").style.background = `rgba(16,16,16,${document.body.scrollTop / 1200})`;
+            document.querySelector(".header").style.color = `rgb(${document.body.scrollTop / 1200 * 255 | 0},${document.body.scrollTop / 1200 * 255 | 0},${document.body.scrollTop / 1200 * 255 | 0})`;
+            requestAnimationFrame(animate);
+        })();
+      </script>
     </div>
 
-    <section class="about"></section>
+    <section class="about" style="margin-top: 100vh; box-shadow: 0 0 20px rgba(0,0,0,.33)">
+      <h1>About The Gents</h1>
+      <img src="img/about.jpg" width="700">
+      <article>
+        The Gents is a unique, all-male Dutch vocal ensemble which, in a very short period, obtained a prominent position on the international music scene. This group of young singers is praised for its characteristic sound, its flexibility, and its unequalled interpretation of a very divergent vocal repertoire. The Gents have their roots in The Roden Boys' Choir, considered one of the Netherlands' top boys' choirs, and inherited its quality and professionalism. Conductor Peter Dijkstra founded the group in 1999. He was the artistic leader / conductor of the ensemble until 2007 and is now its first guest-conductor. From 2008 till 2014 Béni Csillag was the conductor of the ensemble.
+
+        Regardless of the music they perform - be it religious music from the Renaissance, romantic English music, contemporary jazz arrangements, pop songs, or works that have been specifically composed for the ensemble - the concerts of The Gents are always an extraordinary experience. As a result, they can count on an enthusiastic audience and good reviews in the press. The Gents have also acquired an international reputation. They have performed in Japan, Canada, France, Italy, Germany, Sweden, Belgium, the United Kingdom, and Spain. In April 2005, The Gents made their first concert tour in Japan. At the invitation of the Dutch Ministry of Foreign Affairs in Japan, they performed at the World Expo in Aichi in front of an audience of 5000 people, including Dutch and Japanese royals. Its overwhelming success made the Gents decide to make a second Japan tour in 2006.
+
+        In November 2003, The Gents received the first award in the young talents competition issued by the Kersjes Foundation, which, by giving them this award, expressed its faith in this enthusiastic ensemble and the role it fulfills within the Dutch music world.
+      </article>
+
+    </section>
+
+    <section class="conductor">
+      <h1>The conductor</h1>
+      <img src="img/conductor.jpg" height="800">
+      <article>
+        Krista Audere (1989) graduated from Riga Dom choir school (Latvia) in 2009, where she gained qualifications as a choir master and choral singer. She then attained a Bacehlor’s degree in choral conducting at Jāzeps Vītols Latvian Academy of Music (2013) while enriching her musical experience at University of Music and Performing Arts Stuttgart. In 2013, she started Master exchange program in choral conducting at the Conservatorium van Amsterdam and is now continuing her studies at the Conservatory as a full-time Master program student (with Jos Vermunt).
+        <br><br>
+        In the years 2008-2014 Krista co-founded and conducted The Latvian University mixed choir Dziesmuvara. Alongside this position she undertook the duties of the second conductor of the VEF Culture Palace female choir Dzintars (2010-2013).
+        <br><br>
+        She has been a member of the youth choir Kamēr…(2005-2008) and has also performed with vocal ensembles Anima Solla (2010-2012), and William Byrd Consort (2011). These successes resulted in a regular collaboration with the prestigious Latvian Radio Choir starting the year 2011. Since 2013, Krista has been a member of the Tenso European Chamber Choir and has participated in the Netherlands’ new singers project Meesters&Gezellen (2014 and 2015).
+      </article>
+    </section>
+
+  <section class="audio">
+    <h1>Audio</h1>
+    <audio controls></audio>
+    <audio controls></audio>
+    <audio controls></audio>
+    <audio controls></audio>
+    <audio controls></audio>
+  </section>
+
+  <section class="pics">
+    <h1>Gallery</h1>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+
+    <footer class="footer">
+        <div class="social">
+          <img src="img/social.png" height="50" style="cursor: pointer">
+        </div>
+        <br>
+        <div class="gents">
+          <h1>THE GENTS</h1>
+          <p>Kraneweg 13-5</p>
+          <p>9718 JC Groningen</p>
+          <p>THE NETHERLANDS</p>
+        </div>
+        <br>
+        <div id="conductor">
+          <h1>CONDUCTOR</h1>
+          <br>
+          Krista Audere
+        </div>
+        <div id="management">
+          <h1>MANAGEMENT</h1>
+          <p>Bob Klaassen</p>
+          <p>+31 - (0)50 - 525 47 24</p>
+          <p>thegents@xs4all.nl</p>
+        </div>
+        <div id="production">
+          <h1>PRODUCTION</h1>
+          <p>Adri Mulder</p>
+          <p>+31 - (0)71 - 517 63 08</p>
+          <p>+31 - (0)6 - 140 57 124</p>
+        </div>
+        <div id="cdsales">
+          <h1>CD SALES</h1>
+          <p>Ankie & Gosse van der Veen</p>
+          <p>+31 - (0)50 - 50 15 693</p>
+          <p>gosse.veen@home.nl</p>
+        </div>
+        <div id="commercialregister">
+          <h1>COMMERCIAL REGISTER</h1>
+          <p>KvK in Utrecht: 301 53 201</p>
+          <p>Stichting The Gents</p>
+        </div>
+        <div id="pictures">
+          <h1>PICTURES</h1>
+          <p>Philip van de Bree</p>
+          <p>Judith van der Meulen</p>
+          <p>Donald</p>
+        </div>
+    </footer>
   </body>
 </html>
